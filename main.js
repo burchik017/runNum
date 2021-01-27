@@ -1,20 +1,34 @@
 "use strict"
 let doc = document;
-let time = 1000;
+let time = 4000;
 let step = 20;
+let timeOut = doc.querySelector('.timeout');
+
+let timeOutInterval = setInterval(() => {
+    let timeOutNum = +doc.querySelector('.timeout').innerHTML;
+    if (timeOutNum === 1) {
+        clearInterval(timeOutInterval);
+    }
+    let a = timeOutNum - 1;
+    timeOut.innerHTML = a;
+}, 1000);
+
 function outNum (num, elem) {
     let l = doc.querySelector('#' + elem);
     let n = 0;
     let t =  Math.round(time / (num/step));
-    let interval = setInterval(() => {
-        n = n + step;
-        if (n === 1000) {
-            clearInterval(interval);
-        }
-        l.innerHTML = n;
-    }, t);
-    
+    setTimeout(() => {
+        let interval = setInterval(() => {
+            n = n + step;
+            if (n === 1000) {
+                clearInterval(interval);
+            }
+            l.innerHTML = n;
+        }, t);
+    }, 3000);
+
 }
+outNum (1000, 'out-1');
 // -----------v1.0------------
 // outNum (1000, 'out-1');
 // let int = +doc.querySelector('#out-1').innerHTML;

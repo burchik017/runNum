@@ -3,6 +3,13 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
+}
+body .timeout {
+    font-size: 64px;
+    position: absolute;
+    top: calc(164px);
+    left: calc(50% - 16px);
 }
 body #out-1 {
     font-size: 64px;
