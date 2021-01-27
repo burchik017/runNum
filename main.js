@@ -2,14 +2,15 @@
 let doc = document;
 let time = 4000;
 let step = 20;
-let timeOut = doc.querySelector('.timeout');
 
+let timeOut = doc.querySelector('.timeout');
+let timeOutNum = 3;
 let timeOutInterval = setInterval(() => {
-    let timeOutNum = +doc.querySelector('.timeout').innerHTML;
     if (timeOutNum === 1) {
         clearInterval(timeOutInterval);
     }
     let a = timeOutNum - 1;
+    timeOutNum = a;
     timeOut.innerHTML = a;
 }, 1000);
 
